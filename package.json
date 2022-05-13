@@ -1,0 +1,42 @@
+{
+  "name": "@cine/watchdog",
+  "version": "0.1.0",
+  "description": "Subscribe to RSS and others",
+  "main": "dist",
+  "scripts": {
+    "build": "tsc",
+    "debug": "tsc --incremental --sourceMap",
+    "test": "npm run lint && npm run jest",
+    "lint": "eslint --ext=js,ts --max-warnings=0 .",
+    "jest": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takashiro/watchdog.git"
+  },
+  "keywords": [
+    "rss",
+    "subscribe"
+  ],
+  "author": "Kazuichi Takashiro",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/takashiro/watchdog/issues"
+  },
+  "homepage": "https://github.com/takashiro/watchdog#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/node-fetch": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
+  }
+}
