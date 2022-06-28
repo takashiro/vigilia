@@ -36,6 +36,7 @@ module.exports = {
 			'error',
 			200,
 		],
+		'no-shadow': 'off',
 		'no-tabs': 'off',
 	},
 };

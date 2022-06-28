@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>My Project</title>
+		<link>http://example.com/my-project</link>
+		<description>Anime Project - Mikan</description>
+		<item>
+			<guid isPermaLink="false">GUID 1</guid>
+			<link>https://example.com/page1/test-a</link>
+			<title>タイトル</title>
+			<description>Lorum Ipsum</description>
+			<torrent xmlns="https://example.com/0.1/">
+				<link>https://example.com/Home/Episode/99aa94b13a4f276ea27add3a013c1b6c737b727b</link>
+				<contentLength>599072448</contentLength>
+				<pubDate>2022-05-11T02:25:24.011</pubDate>
+			</torrent>
+			<enclosure type="application/x-bittorrent" length="599072448" url="https://example.com/Download/20220511/99aa94b13a4f276ea27add3a013c1b6c737b727b.torrent" />
+		</item>
+		<item>
+			<guid isPermaLink="false">GUID 2</guid>
+			<link>https://example.com/Home/Episode/0b4a866c9f3cc40577db30cfc8e6909c8dd33666</link>
+			<title>Title</title>
+			<description>Lorum Ipsam</description>
+		</item>
+	</channel>
+</rss>

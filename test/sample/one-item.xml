@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>My Project</title>
+		<link>http://example.com/my-project</link>
+		<description>Anime Project - Mikan</description>
+		<item>
+			<guid isPermaLink="false">GUID 2</guid>
+			<link>https://example.com/Home/Episode/0b4a866c9f3cc40577db30cfc8e6909c8dd33666</link>
+			<title>Title</title>
+			<description>Lorum Ipsam</description>
+		</item>
+	</channel>
+</rss>
