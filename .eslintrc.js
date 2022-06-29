@@ -38,5 +38,6 @@ module.exports = {
 		],
 		'no-shadow': 'off',
 		'no-tabs': 'off',
+		semi: 'off',
 	},
 };

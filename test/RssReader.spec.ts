@@ -26,6 +26,10 @@ it('should reads a link', (done) => {
 it('should reads two torrents', (done) => {
 	const input = fs.createReadStream(path.join(__dirname, 'sample', 'two-torrents.xml'));
 	const reader = new RssReader(input);
+
+	reader.setTimezone({ hour: 8 });
+	expect(reader.parseDate('2022-05-11T20:25:24.011')).toStrictEqual(new Date('2022-05-11T12:25:24.011Z'));
+
 	const feeds: FeedItem[] = [];
 	reader.on('feed', (feed) => {
 		feeds.push(feed);

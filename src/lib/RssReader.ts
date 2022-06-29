@@ -65,7 +65,7 @@ class RssReader extends Reader {
 				torrent.link = text;
 				break;
 			case TagName.PublishDate:
-				torrent.pubDate = new Date(text);
+				torrent.pubDate = this.parseDate(text);
 				break;
 			case TagName.ContentLength:
 				torrent.contentLength = Number.parseInt(text, 10);

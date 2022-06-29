@@ -2,6 +2,11 @@ import { EventEmitter } from 'events';
 import { Readable } from 'stream';
 
 import FeedItem from '../model/FeedItem';
+import Timezone from '../model/Timezone';
+
+function padZero(num: number, length: number): string {
+	return String(num).padStart(length, '0');
+}
 
 interface Reader {
 	on(event: 'feed', listener: (feed: FeedItem) => void): this;
@@ -22,6 +27,11 @@ interface Reader {
 }
 
 abstract class Reader extends EventEmitter {
+	protected timezone: Timezone = {
+		hour: 0,
+		minute: 0,
+	};
+
 	protected input: Readable;
 
 	protected inChannel = false;
@@ -34,6 +44,26 @@ abstract class Reader extends EventEmitter {
 		super();
 
 		this.input = input;
+	}
+
+	getTimezone(): Timezone {
+		return { ...this.timezone };
+	}
+
+	setTimezone(timezone: Partial<Timezone>): void {
+		const {
+			hour = 0,
+			minute = 0,
+		} = timezone;
+		this.timezone.hour = hour;
+		this.timezone.minute = minute;
+	}
+
+	parseDate(str: string): Date {
+		if (str.match(/\+\d{1,2}:\d{1,2}$/)) {
+			return new Date(str);
+		}
+		return new Date(`${str}+${padZero(this.timezone.hour, 2)}:${padZero(this.timezone.minute, 2)}`);
 	}
 
 	abstract run(): void;
