@@ -66,7 +66,15 @@ abstract class Reader extends EventEmitter {
 		return new Date(`${str}+${padZero(this.timezone.hour, 2)}:${padZero(this.timezone.minute, 2)}`);
 	}
 
-	abstract run(): void;
+	exec(): Promise<void> {
+		this.run();
+		return new Promise((resolve, reject) => {
+			this.once('end', resolve);
+			this.once('error', reject);
+		});
+	}
+
+	protected abstract run(): void;
 }
 
 export default Reader;

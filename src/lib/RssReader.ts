@@ -15,7 +15,7 @@ const enum TagName {
 }
 
 class RssReader extends Reader {
-	run(): void {
+	protected override run(): void {
 		const stream = sax.createStream();
 		stream.on('opentag', this.readOpenTag.bind(this));
 		stream.on('text', this.readText.bind(this));

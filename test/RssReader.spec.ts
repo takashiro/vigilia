@@ -4,7 +4,7 @@ import path from 'path';
 import RssReader from '../src/lib/RssReader';
 import FeedItem from '../src/model/FeedItem';
 
-it('should reads a link', (done) => {
+it('should reads a link', async () => {
 	const input = fs.createReadStream(path.join(__dirname, 'sample', 'one-item.xml'));
 	const reader = new RssReader(input);
 	const feeds: FeedItem[] = [];
@@ -18,12 +18,11 @@ it('should reads a link', (done) => {
 			description: 'Lorum Ipsam',
 			link: 'https://example.com/Home/Episode/0b4a866c9f3cc40577db30cfc8e6909c8dd33666',
 		});
-		done();
 	});
-	reader.run();
+	await reader.exec();
 });
 
-it('should reads two torrents', (done) => {
+it('should reads two torrents', async () => {
 	const input = fs.createReadStream(path.join(__dirname, 'sample', 'two-torrents.xml'));
 	const reader = new RssReader(input);
 
@@ -51,7 +50,6 @@ it('should reads two torrents', (done) => {
 			description: 'Lorum Ipsam',
 			link: 'https://example.com/Home/Episode/0b4a866c9f3cc40577db30cfc8e6909c8dd33666',
 		});
-		done();
 	});
-	reader.run();
+	await reader.exec();
 });
