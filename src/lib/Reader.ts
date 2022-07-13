@@ -2,6 +2,7 @@ import { EventEmitter } from 'events';
 import { Readable } from 'stream';
 
 import FeedItem from '../model/FeedItem';
+import { RunnableObject } from '../model/Runnable';
 import Timezone from '../model/Timezone';
 
 function padZero(num: number, length: number): string {
@@ -26,7 +27,7 @@ interface Reader {
 	emit(event: 'error', error: Error): boolean;
 }
 
-abstract class Reader extends EventEmitter {
+abstract class Reader extends EventEmitter implements RunnableObject {
 	protected timezone: Timezone = {
 		hour: 0,
 		minute: 0,
